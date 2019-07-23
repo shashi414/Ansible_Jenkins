@@ -23,7 +23,7 @@
   template:
     src: templates/mytomuser.j2
     dest: /usr/share/tomcat/conf/tomcat-users.xml
-  notify: restarttomcat
+  notify: starttomcat
 
 - name: i want to deploy ravi java war file into webapps  
   get_url:
