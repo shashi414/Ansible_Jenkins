@@ -18,15 +18,11 @@
   with_items:
     - tomcat-webapps
     - tomcat-admin-webapps
-
+- name:  copy tom config file into all nodes
   template:
     src: templates/mytomuser.j2
     dest: /usr/share/tomcat/conf/tomcat-users.xml
-    
-  service:
-    name: tomcat
-    state: started
-
+  notify: starttomcat
 - name: i want to deploy ravi java war file into webapps  
   get_url:
     url:  http://34.223.221.20:8081/artifactory/warfile/2/target/nareshLogin-1.0.war
